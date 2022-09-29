@@ -62,7 +62,7 @@ class _AppViewState extends State<AppView> {
     return MaterialApp(
       navigatorKey: _navigatorKey,
       debugShowCheckedModeBanner: false,
-      title: 'dothrak',
+      title: 'lockscreen',
       theme: ThemeData(
         // This is the theme of your application.
         //
