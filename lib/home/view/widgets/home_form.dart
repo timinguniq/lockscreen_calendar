@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lockscreen_calendar/home/bloc/home_bloc.dart';
@@ -19,18 +21,27 @@ class HomeForm extends StatelessWidget {
         }
         */
       },
-      child: Align(
-        alignment: const Alignment(0, -1 / 3),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            //_UsernameInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            //_PasswordInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            //_LoginButton(),
-          ],
+      child: GridView.builder(
+        itemCount: 10,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // 1개의 행에 보여줄 item 갯수
+          childAspectRatio: 1 / 2, // item 의 가로 1, 세로 2의 비율
+          mainAxisSpacing: 10, // 수평 Padding
+          crossAxisSpacing: 10, // 수직 Padding
         ),
+        itemBuilder: (BuildContext context, int index) {
+          // item 의 반복문 항목 형성
+          return GestureDetector(
+            onTap: () {
+              log('index : $index');
+            },
+            // TODO : 나중에 Container 대신 ImageView 넣어야 될듯.
+            child: Container(
+              color: Colors.lightGreen,
+              child: Text(' Item : $index'),
+            ),
+          );
+        },
       ),
     );
   }
